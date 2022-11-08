@@ -19,8 +19,7 @@ def data_transformation(csv_path: list) -> list[pd.DataFrame]:
 
     estancias_jesuiticas = pd.read_csv(csv_path[0])
     calchaqui = pd.read_csv(csv_path[1])
-    independencia = pd.read_csv(csv_path[2])
-    yerbamate = pd.read_csv(csv_path[3])
+    yerbamate = pd.read_csv(csv_path[2])
 
     # select data columns form each dataframe
 
@@ -77,7 +76,7 @@ def data_transformation(csv_path: list) -> list[pd.DataFrame]:
     ferias.rename(columns={'total': 'Numero de ferias'}, inplace=True)
 
     # Records per province and category
-    cols = ["provincia", "categoría"]    
+    cols = ["provincia", "categoria"]    
     provincias_museos = pd.DataFrame(main_df.groupby(cols)['museos'].size().reset_index(name='total'))
     provincias_museos.rename(columns={'total': 'Numero de museos'}, inplace=True)
 

@@ -13,18 +13,15 @@ def data_extraction() -> list:
     # Define list of paths to save the data
     csv_paths = []
 
-    categories_dict = {'museos': "https://datos.cultura.gob.ar/dataset/37305de4-3cce-4d4b-9d9a-fec3ca61d09f/resource"
-                                 "/4207def0-2ff7-41d5-9095-d42ae8207a5d/download/museos_datosabiertos.csv",
-                       'cines': "https://datos.cultura.gob.ar/dataset/37305de4-3cce-4d4b-9d9a-fec3ca61d09f/resource"
-                                "/392ce1a8-ef11-4776-b280-6f1c7fae16ae/download/cine.csv",
-                       'bibliotecas': "https://datos.cultura.gob.ar/dataset/37305de4-3cce-4d4b-9d9a-fec3ca61d09f"
-                                      "/resource/01c6c048-dbeb-44e0-8efa-6944f73715d7/download/biblioteca_popular.csv "
+    categories_dict = {'estancias_jesuiticas': "https://datos.cultura.gob.ar/dataset/rutas-culturales/",
+                       'calchaqui': "https://datos.cultura.gob.ar/dataset/rutas-culturales",
+                       'yerbamate': "https://datos.cultura.gob.ar/dataset/rutas-culturales"
                           }
 
     # Generate the .csv files
     for category, url in categories_dict.items():
-        b_path = Path('/Datos/' + category + datetime.now().strftime('/%y-%m/'))
-        f_path = category + datetime.now().strftime('-%d-%m-%y') + '.csv'
+        b_path = Path('data/' + category + datetime.now().strftime('/%y-%m/'))
+        f_path = category + '.csv'
         final_path = b_path / f_path
 
     # Create directory to save data
